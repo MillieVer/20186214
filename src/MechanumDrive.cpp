@@ -1,15 +1,32 @@
 #include <MechanumDrive.h>
 #include <math.h>
 #include <wpilib.h>
+#include <Spark.h>
+
+void MechanumDrive::setWheels(int fl, int fr, int bl, int br) {
+		FL = new frc::Spark(fl);
+		FR = new frc::Spark(fr);
+		BL = new frc::Spark(bl);
+		BR = new frc::Spark(br);
+
+}
+
+void MechanumDrive::setPolarity(int flp, int frp, int blp, int brp) {
+	FLP = flp;
+	FRP = frp;
+	BLP = blp;
+	BRP = brp;
+}
+
 void MechanumDrive::drive(float x, float y, float z) {
 	enum caseswitch {cx, cy, cz};
 	int sw = 0;
 
-	if(x > y && x > z) {
+	if(std::fabs(x) > std::fabs(y) && std::fabs(x) > std::fabs(z)) {
 		sw = cx;
-	} else if (y > x && y > z) {
+	} else if (std::fabs(y) > x && std::fabs(y) > std::fabs(z)) {
 		sw = cy;
-	} else if (z > y && z > x) {
+	} else if (std::fabs(z) > std::fabs(y) && std::fabs(z) > std::fabs(x)) {
 		sw = cz;
 	}
 
@@ -26,28 +43,28 @@ void MechanumDrive::drive(float x, float y, float z) {
 	//Each drive type is determined by the largest float
 	switch(sw) {
 	case cy:
-		MechanumDrive::wheel.FL.Set(y * MechanumDrive::wheel.FLP);
-		MechanumDrive::wheel.FR.Set(y * MechanumDrive::wheel.FRP);
-		MechanumDrive::wheel.BL.Set(y * MechanumDrive::wheel.BLP);
-		MechanumDrive::wheel.BR.Set(y * MechanumDrive::wheel.BRP);
+		MechanumDrive::FL->Set(y * MechanumDrive::FLP);
+		MechanumDrive::FR->Set(y * MechanumDrive::FRP);
+		MechanumDrive::BL->Set(y * MechanumDrive::BLP);
+		MechanumDrive::BR->Set(y * MechanumDrive::BRP);
 		break;
 	case cx:
-		MechanumDrive::wheel.FL.Set(x * MechanumDrive::wheel.FLP);
-		MechanumDrive::wheel.FR.Set(x * MechanumDrive::wheel.FRP * -1);
-		MechanumDrive::wheel.BL.Set(x * MechanumDrive::wheel.BLP * -1);
-		MechanumDrive::wheel.BR.Set(x * MechanumDrive::wheel.BRP);
+		MechanumDrive::FL->Set(x * MechanumDrive::FLP);
+		MechanumDrive::FR->Set(x * MechanumDrive::FRP * -1);
+		MechanumDrive::BL->Set(x * MechanumDrive::BLP * -1);
+		MechanumDrive::BR->Set(x * MechanumDrive::BRP);
 		break;
 	case cz:
-		MechanumDrive::wheel.FL.Set(y * MechanumDrive::wheel.FLP);
-		MechanumDrive::wheel.FR.Set(y * MechanumDrive::wheel.FRP * -1);
-		MechanumDrive::wheel.BL.Set(y * MechanumDrive::wheel.BLP);
-		MechanumDrive::wheel.BR.Set(y * MechanumDrive::wheel.BRP * -1);
+		MechanumDrive::FL->Set(y * MechanumDrive::FLP);
+		MechanumDrive::FR->Set(y * MechanumDrive::FRP * -1);
+		MechanumDrive::BL->Set(y * MechanumDrive::BLP);
+		MechanumDrive::BR->Set(y * MechanumDrive::BRP * -1);
 		break;
 	default:
-		MechanumDrive::wheel.FL.Set(0);
-		MechanumDrive::wheel.FR.Set(0);
-		MechanumDrive::wheel.BL.Set(0);
-		MechanumDrive::wheel.BR.Set(0);
+		MechanumDrive::FL->Set(0);
+		MechanumDrive::FR->Set(0);
+		MechanumDrive::BL->Set(0);
+		MechanumDrive::BR->Set(0);
 	}
 	Wait(0.005);
 }

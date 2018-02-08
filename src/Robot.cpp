@@ -24,8 +24,8 @@ public:
 		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 	}
 
-	MechanumDrive drive;
-	frc::Joystick stick;
+	MechanumDrive *drive;
+	frc::Joystick *stick;
 
 
 	/*
@@ -64,16 +64,16 @@ public:
 	}
 
 	void TeleopInit() {
-		drive.threshold = .2;
-		drive.wheel.FL = 2;
-		drive.wheel.FR = 3;
-		drive.wheel.BL = 0;
-		drive.wheel.BR = 1;
-		stick(0);
+		drive = new MechanumDrive;
+		drive->threshold = .3;
+		drive->setWheels(2,3,1,0);
+		drive->setPolarity(-1, -1, 1, 1);
+		stick = new Joystick(0);
 	}
 
 	void TeleopPeriodic() {
 
+		drive->drive(stick->GetX(),stick->GetY(),stick->GetZ());
 	}
 
 	void TestPeriodic() {}
