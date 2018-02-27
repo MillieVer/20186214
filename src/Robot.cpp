@@ -21,11 +21,6 @@ class Robot : public frc::IterativeRobot {
 private:
 
 	frc::LiveWindow& m_lw = *LiveWindow::GetInstance();
-	frc::SendableChooser<std::string> m_chooser;
-	const std::string kAutoNameDefault = "Default";
-	const std::string kAutoNameCustom = "My Auto";
-	std::string m_autoSelected;
-
 	MechanumDrive *drive;
 	frc::Joystick *stick;
 	LiftMechanism *lift;
@@ -33,46 +28,45 @@ private:
 
 public:
 
+	/**This is where you will set all your initial starting conditions.
+	 * Any mechanisms that are used during autonomous and user operated periods will be set here.
+	 * This is done once and will not happen again until the robot code is restarted.**/
 	void RobotInit() override {
-		m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
-		m_chooser.AddObject(kAutoNameCustom, kAutoNameCustom);
-		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
+		//Setting the drive system variables.
 		drive = new MechanumDrive;
-		lift = new LiftMechanism;
 		drive->threshold = .1;
 		drive->setWheels(2,3,1,0);
 		drive->setPolarity(-1, 1, 1, -1);
+
+		//Setting the Lift system variables.
+		lift = new LiftMechanism;
 		lift->SetIntake(15);
+		//lift->SetLift(1);
 	}
+
+	/**Disabled Init is called whenever the robot is disabled. If something should be killed
+	 * when the robot is disabled do it here. Usually you don't use this.**/
 	void DisabledInit() override {
 		delete[] stick;
 	}
 
+	void DisabledPeriodic() override {
+		//DO NOT PUT ANYTHING IN HERE THAT MOVES WHEN THE ROBOT IS DISABLED IT NEEDS TO BE STILL.
+	}
+
+
 	void AutonomousInit() override {
-		m_autoSelected = m_chooser.GetSelected();
-		// m_autoSelected = SmartDashboard::GetString(
-		// 		"Auto Selector", kAutoNameDefault);
-		std::cout << "Auto selected: " << m_autoSelected << std::endl;
-
-		if (m_autoSelected == kAutoNameCustom) {
-			// Custom Auto goes here
-		} else {
-			// Default Auto goes here
-		}
 	}
+
 	void AutonomousPeriodic() override {
-		if (m_autoSelected == kAutoNameCustom) {
-			// Custom Auto goes here
-		} else {
-			// Default Auto goes here
-		}
 	}
 
+	/**Teleop is the period of time that we mortals control the robot. This is done through any sort of control mechanism we want.
+	 * The catch? You actually have to program stuff.**/
 	void TeleopInit() override {
 		stick = new Joystick(0);
-		lift->SetIntake(15);
-		//lift->SetLift(1);
 	}
+
 	void TeleopPeriodic() override {
 
 		//drive->drive(stick->GetX(), stick->GetY(), stick->GetTwist());
@@ -85,7 +79,6 @@ public:
 			lift->Intake(0);
 		}
 
-/**
 		if (stick->GetPOV(0) == 0) {
 			lift->Lift(.1);
 		} else if (stick->GetPOV(0) == 180) {
@@ -93,15 +86,13 @@ public:
 		} else {
 			lift->Lift(0);
 		}
-		**/
 	}
 
 	void TestInit() override {
-
 	}
-	void TestPeriodic() override {}
 
-private:
+	void TestPeriodic() override {
+	}
 
 };
 
