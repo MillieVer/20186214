@@ -69,7 +69,7 @@ public:
 
 	void TeleopPeriodic() override {
 
-		//drive->drive(stick->GetX(), stick->GetY(), stick->GetTwist());
+		drive->drive(stick->GetX(), stick->GetY(), stick->GetTwist());
 
 		if (stick->GetPOV(0) == 0) {
 			lift->Intake(.5);
