@@ -71,9 +71,9 @@ public:
 
 		drive->drive(stick->GetX(), stick->GetY(), stick->GetTwist());
 
-		if (stick->GetPOV(0) == 0) {
+		if (stick->GetButton(1) ){
 			lift->Intake(.5);
-		} else if (stick->GetPOV(0) == 180) {
+		} else if (stick->GetButton(2) ) {
 			lift->Intake(-.5);
 		} else {
 			lift->Intake(0);
