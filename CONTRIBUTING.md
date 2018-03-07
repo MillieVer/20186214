@@ -21,4 +21,12 @@ The most tedious part. In order to actually get into programming even the smalle
 You know the usual procedure. Some of these will require a restart in order to take effect however. The ones that will be a little annoying to deal with however is the FRC Update suite. Not only do you have to create a National Instruments Account it will require a key to install, this is included in your Kit of Parts (KOP) If you do not know this then feel free to ask team members. You only need to put it in once but make sure you have it written down for the future.
 
 ## Setting up for code
-WIP
+After everything is installed you're 98% of the way there, all that needs to be done now is download the code and get coding!
+
+If you haven't already now would be a good time to create a [GitHub](https://github.com) account.
+
+### Fork the code
+In order to fork a repository one must go to the main page of the repository (in our case [here](https://github.com/6214frc/20186214)) and press the "Fork" button on the top right of the page. This only needs to be done **once** doing it again will create another fork which is pretty useless for what we are doing. This will create a *copy* of the code on **your** account so that you can edit and mess around with things without messing up the main repository of code. Later, you can find your code at https://github.com/USERNAME/20186214 where USERNAME is your username.
+
+### Downloading the forked code
+WIP. I'M TIRED AND THIS NEEDS TO BE DONE BY SOMEONE ELSE DANGIT
