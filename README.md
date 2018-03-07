@@ -14,7 +14,7 @@ Every year an arena is designed, this arena will have different goals for teams 
 There are a TON of ways to get involved! If you are a teacher you might want to help your school's team or even start one up! If you are a student then join in! Even if you are the average joe that is best friends with a guy who's daughter is friends with a couple of kids in robotics you can help Mentor students! (True story btw) No matter your skillset there is always something that you can contribute. A robotics team isn't just builders and programmers, there is
 * Marketing
 * Programming
-* Outreach
+* Blueprint
 * Building
 
 There really is a ton that one can do in a robotics team. Fundraising is a MASSIVE part of robotics. The average team can spend upwards of 30 thousand a year on their robot, transportation, and most importantly snacks. Without snacks it's doubtful that we would even be able to build a robot at all!
