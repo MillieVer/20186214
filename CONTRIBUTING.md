@@ -26,7 +26,7 @@ After everything is installed you're 98% of the way there, all that needs to be 
 If you haven't already now would be a good time to create a [GitHub](https://github.com) account.
 
 ### Fork the code
-In order to fork a repository one must go to the main page of the repository (in our case [here](https://github.com/6214frc/20186214)) and press the "Fork" button on the top right of the page. This only needs to be done **once** doing it again will create another fork which is pretty useless for what we are doing. This will create a *copy* of the code on **your** account so that you can edit and mess around with things without messing up the main repository of code. Later, you can find your code at https://github.com/USERNAME/20186214 where USERNAME is your username.
+In order to fork a repository one must go to the main page of the repository (in our case [here](https://github.com/6214frc/20186214)) and press the "Fork" button on the top right of the page. This only needs to be done **once** doing it again will create another fork which is pretty useless for what we are doing. This will create a *copy* of the code on ***your*** account so that you can edit and mess around with things without messing up the main repository of code. Later, you can find your code at https://github.com/USERNAME/20186214 where USERNAME is your username.
 
 ### Downloading the forked code
 WIP. I'M TIRED AND THIS NEEDS TO BE DONE BY SOMEONE ELSE DANGIT
