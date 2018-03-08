@@ -49,6 +49,8 @@ tmp/
 .project
 /.idea
 .classpath
+.kdev4/
+*.kdev4
 
 # Toast/GradleRIO
 run/
