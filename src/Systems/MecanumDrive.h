@@ -1,7 +1,7 @@
 #pragma once
 #include <Spark.h>
 
-class MechanumDrive {
+class MecanumDrive {
 public:
 
 	float threshold = 0.2; //Dead Zone

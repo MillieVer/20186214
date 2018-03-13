@@ -14,14 +14,14 @@
 #include <SmartDashboard/SmartDashboard.h>
 #include <Joystick.h>
 
-#include "Systems/MechanumDrive.h"
+#include "Systems/MecanumDrive.h"
 #include "Systems/LiftMechanism.h"
 
 class Robot : public frc::IterativeRobot {
 private:
 
 	frc::LiveWindow& m_lw = *LiveWindow::GetInstance();
-	MechanumDrive *drive;
+	MecanumDrive *drive;
 	frc::Joystick *stick;
 	LiftMechanism *lift;
 
@@ -33,13 +33,13 @@ public:
 	 * This is done once and will not happen again until the robot code is restarted.**/
 	void RobotInit() override {
 		//Setting the drive system variables.
-		drive = new MechanumDrive;
+		drive = new MecanumDrive;
 		drive->threshold = .1;
 		drive->setWheels(2,3,1,0);
 		drive->setPolarity(-1, 1, 1, -1);
 
 		//Setting the Lift system variables.
-		lift = new LiftMechanism;
+		lift = new LiftMecanism;
 		lift->SetIntake(15);
 		//lift->SetLift(1);
 		stick = new Joystick(0);
