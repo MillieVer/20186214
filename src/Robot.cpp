@@ -42,12 +42,12 @@ public:
 		lift = new LiftMechanism;
 		lift->SetIntake(15);
 		//lift->SetLift(1);
+		stick = new Joystick(0);
 	}
 
 	/**Disabled Init is called whenever the robot is disabled. If something should be killed
 	 * when the robot is disabled do it here. Usually you don't use this.**/
 	void DisabledInit() override {
-		delete[] stick;
 	}
 
 	void DisabledPeriodic() override {
@@ -64,7 +64,7 @@ public:
 	/**Teleop is the period of time that we mortals control the robot. This is done through any sort of control mechanism we want.
 	 * The catch? You actually have to program stuff.**/
 	void TeleopInit() override {
-		stick = new Joystick(0);
+
 	}
 
 	void TeleopPeriodic() override {
